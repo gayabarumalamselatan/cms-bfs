@@ -1,9 +1,13 @@
 import type { CollectionConfig } from 'payload'
+import { isAdmin } from 'tests/helpers/rolechecker'
 
 export const Media: CollectionConfig = {
   slug: 'media',
   access: {
-    read: () => true,
+    read: isAdmin,
+    create: isAdmin,
+    update: isAdmin,
+    delete: isAdmin,
   },
   fields: [
     {
@@ -12,5 +16,8 @@ export const Media: CollectionConfig = {
       required: true,
     },
   ],
-  upload: true,
+  upload: {
+    staticDir: 'media/admin',
+    mimeTypes: ['image/*'],
+  },
 }
