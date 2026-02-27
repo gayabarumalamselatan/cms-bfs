@@ -1,11 +1,25 @@
+# services:
+#   payload:
+#     build: .
+#     container_name: cms-bfs
+#     ports:
+#       - '3001:3000'
+#     env_file:
+#       - .env
+#     restart: unless-stopped
+
 services:
   payload:
-    build: .
+    image: ghcr.io/gayabarumalamselatan/cms-bfs:latest
     container_name: cms-bfs
     ports:
       - '3001:3000'
     env_file:
       - .env
+    volumes:
+      - /home/bfs/cms-bfs/media:/app/media
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
     restart: unless-stopped
 
 # version: '3'

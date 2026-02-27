@@ -7,7 +7,7 @@ export const ProductMedia: CollectionConfig = {
     useAsTitle: 'alt',
   },
   access: {
-    read: isEditor,
+    read: () => true,
     create: isEditor,
     update: isEditor,
     delete: isEditor,
