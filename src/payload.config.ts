@@ -38,6 +38,23 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, AboutUs, Category, SubCategory, ContactUs, Products, ProductMedia],
+  csrf: [
+    'http://localhost:3000',
+    'http://localhost:3001',
+    'http://192.168.19.236:3000',
+    'http://192.168.19.236:3001',
+    // Tambahkan juga tanpa port
+    'http://192.168.19.236',
+    // Jika pakai https
+    // 'https://192.168.19.236:3001',
+  ],
+  cors: [
+    'http://localhost:3000',
+    'http://localhost:3001',
+    'http://192.168.19.236:3000',
+    'http://192.168.19.236:3001',
+    'http://192.168.19.236',
+  ],
   upload: {
     limits: {
       fileSize: 10_000_000,
