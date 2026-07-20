@@ -13,11 +13,13 @@ import { SubCategory } from './collections/SubCategory'
 import { ContactUs } from './collections/ContactUs'
 import { Products } from './collections/Product'
 import { ProductMedia } from './collections/ProductMedia'
+import { FeaturedProducts } from './collections/FeaturedProducts'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
+  serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL || '',
   admin: {
     user: Users.slug,
     importMap: {
@@ -37,7 +39,17 @@ export default buildConfig({
       },
     },
   },
-  collections: [Users, Media, AboutUs, Category, SubCategory, ContactUs, Products, ProductMedia],
+  collections: [
+    Users,
+    Media,
+    AboutUs,
+    Category,
+    SubCategory,
+    ContactUs,
+    Products,
+    ProductMedia,
+    FeaturedProducts,
+  ],
   csrf: [
     'http://localhost:3000',
     'http://localhost:3001',

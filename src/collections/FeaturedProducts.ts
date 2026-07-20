@@ -1,13 +1,11 @@
 import { CollectionConfig } from 'payload'
 import { isEditor } from 'tests/helpers/rolechecker'
 
-export const AboutUs: CollectionConfig = {
-  slug: 'about-us',
+export const FeaturedProducts: CollectionConfig = {
+  slug: 'featured-products',
   admin: {
-    useAsTitle: 'judul',
-    description: 'Konten section Tentang Kami',
+    useAsTitle: 'featuredProducts',
   },
-
   access: {
     read: isEditor,
     create: () => false,
@@ -16,13 +14,11 @@ export const AboutUs: CollectionConfig = {
   },
   fields: [
     {
-      name: 'judul',
-      type: 'text',
-      required: true,
-    },
-    {
-      name: 'konten',
-      type: 'textarea',
+      name: 'featuredProducts',
+      label: 'Featured Products',
+      type: 'relationship',
+      hasMany: true,
+      relationTo: 'product',
       required: true,
     },
   ],

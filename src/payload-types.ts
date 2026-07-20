@@ -75,6 +75,7 @@ export interface Config {
     'contact-us': ContactUs;
     product: Product;
     'product-media': ProductMedia;
+    'featured-products': FeaturedProduct;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -90,6 +91,7 @@ export interface Config {
     'contact-us': ContactUsSelect<false> | ContactUsSelect<true>;
     product: ProductSelect<false> | ProductSelect<true>;
     'product-media': ProductMediaSelect<false> | ProductMediaSelect<true>;
+    'featured-products': FeaturedProductsSelect<false> | FeaturedProductsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -256,6 +258,16 @@ export interface ProductMedia {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "featured-products".
+ */
+export interface FeaturedProduct {
+  id: number;
+  featuredProducts: (number | Product)[];
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -309,6 +321,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'product-media';
         value: number | ProductMedia;
+      } | null)
+    | ({
+        relationTo: 'featured-products';
+        value: number | FeaturedProduct;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -461,6 +477,15 @@ export interface ProductMediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "featured-products_select".
+ */
+export interface FeaturedProductsSelect<T extends boolean = true> {
+  featuredProducts?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
