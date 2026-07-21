@@ -28,14 +28,11 @@ export default buildConfig({
     meta: {
       titleSuffix: ' | CMS BFS',
       description: 'Content Management System',
-      icons: {
-        icon: '@components/Logo',
-      },
     },
     components: {
       graphics: {
-        Logo: '@/components/LoginLogo',
-        Icon: '@/components/Logo',
+        Logo: '/components/LoginLogo',
+        Icon: '/components/Logo',
       },
     },
   },
