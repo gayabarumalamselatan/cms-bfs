@@ -52,10 +52,10 @@ export default buildConfig({
     'http://localhost:3001',
     'http://192.168.19.236:3000',
     'http://192.168.19.236:3001',
-    // Tambahkan juga tanpa port
     'http://192.168.19.236',
-    // Jika pakai https
-    // 'https://192.168.19.236:3001',
+    'http://192.168.19.188:3000',
+    'http://192.168.19.188:3001',
+    'http://192.168.19.188',
   ],
   cors: [
     'http://localhost:3000',
@@ -63,6 +63,9 @@ export default buildConfig({
     'http://192.168.19.236:3000',
     'http://192.168.19.236:3001',
     'http://192.168.19.236',
+    'http://192.168.19.188:3000',
+    'http://192.168.19.188:3001',
+    'http://192.168.19.188',
   ],
   upload: {
     limits: {
