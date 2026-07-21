@@ -1,5 +1,5 @@
 export const isEditor = ({ req }: any) => {
-  return req.user?.role === 'editor'
+  return req.user?.role === 'editor' || req.user?.role === 'admin'
 }
 export const isAdmin = ({ req }: any) => {
   return req.user?.role === 'admin'

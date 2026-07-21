@@ -17,7 +17,7 @@ services:
     env_file:
       - .env
     volumes:
-      - /home/bfs/cms-bfs/media:/app/media
+      - ./media:/app/media
     extra_hosts:
       - 'host.docker.internal:host-gateway'
     restart: unless-stopped
